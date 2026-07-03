@@ -68,6 +68,28 @@ npx http-server -c-1
 
 Then open `http://localhost:8080`.
 
+## Development Environment
+This repository is a dependency-free static app with a no-build workflow.
+
+Development assumptions:
+- The app runs directly from `index.html` with browser-loaded CSS and JavaScript files.
+- No bundler, transpiler, backend service, database, or framework-specific dev server is required.
+- Opening `index.html` directly in a browser is acceptable for quick checks.
+- A local static server is still recommended for normal development because it more closely matches browser behavior on GitHub Pages and avoids file-loading inconsistencies across browsers.
+
+Repository tooling notes:
+- The application runtime does not require a package manager install step.
+- `package.json` exists only to expose `npm run validate` for lightweight repository checks.
+- No third-party npm dependencies are required for the current validation flow.
+- A lockfile is intentionally omitted unless future tooling introduces a real dependency tree that needs to be pinned.
+
+Static asset and configuration loading:
+- Gallery images and the favicon are loaded from local paths under `img/`.
+- Editor fonts are loaded from local files in `fonts/` through `@font-face` declarations in `css/setup/typography.css`.
+- Client-side behavior is loaded from scripts under `js/`.
+- Normal app usage does not rely on `.env` files, hidden runtime secrets, or a separate configuration service.
+- Optional Cloudinary sharing behavior, when enabled in another environment, remains client-visible and must be reviewed as a source-level change.
+
 ## Usage
 1. Open the gallery and choose a built-in image, or upload your own image.
 2. Add or edit text lines from the editor controls.

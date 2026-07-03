@@ -21,6 +21,7 @@ and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 - README now documents the repository static validation command and CI quality gate.
 - README now displays current app screenshots and the favicon asset was optimized to a smaller square icon without changing its path.
 - README now documents the initial `v0.1.0` version decision, tag format, and minimal release checklist.
+- README now includes a dedicated development environment section covering the no-build static workflow, local server guidance, asset loading, and why no lockfile is required.
 
 ## [0.1.0] - 2025-11-15
 
