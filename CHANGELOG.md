@@ -12,6 +12,7 @@ and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 
 ### Changed
 - README links for the project license, changelog, and security policy.
+- Public demo sharing is now disabled by default until a restricted Cloudinary preset is verified, and the documentation explains the required safeguards.
 
 ## [0.1.0] - 2025-11-15
 

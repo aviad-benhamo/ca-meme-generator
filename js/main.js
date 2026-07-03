@@ -5,6 +5,7 @@ var gCtx
 var gElTextInput
 var gElColorInput
 var gElFontSelect
+var gElShareBtn
 
 // Sections
 var gElGallery
@@ -33,6 +34,8 @@ function onInit() {
     gElTextInput = document.querySelector('.myTextInput')
     gElColorInput = document.getElementById('color-picker')
     gElFontSelect = document.getElementById('font-select')
+    gElShareBtn = document.querySelector('.btn-share')
+    syncShareButtonState()
 
     //listen to clicks on Cancas
     gElCanvas.addEventListener('mousedown', onCanvasClick)
@@ -50,6 +53,24 @@ function onInit() {
 
     // On load, show the main gallery
     onShowGallery()
+}
+
+function syncShareButtonState() {
+    if (!gElShareBtn) return
+
+    const shareConfig = getShareConfig()
+    if (shareConfig.enabled) {
+        gElShareBtn.disabled = false
+        gElShareBtn.removeAttribute('aria-disabled')
+        gElShareBtn.title = 'Share'
+        gElShareBtn.innerHTML = '<i class="fas fa-share-alt"></i> Share'
+        return
+    }
+
+    gElShareBtn.disabled = true
+    gElShareBtn.setAttribute('aria-disabled', 'true')
+    gElShareBtn.title = shareConfig.disabledReason
+    gElShareBtn.innerHTML = '<i class="fas fa-share-alt"></i> Share Disabled'
 }
 
 function onShowGallery() {

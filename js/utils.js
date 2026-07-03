@@ -1,5 +1,12 @@
 'use strict'
 
+const SHARE_CONFIG = Object.freeze({
+    enabled: false,
+    cloudName: 'webify',
+    uploadPreset: 'webify',
+    disabledReason: 'Sharing is disabled in the public demo until a restricted Cloudinary preset is verified.'
+})
+
 // --- localStorage UTILS ---
 function saveToStorage(key, val) {
     localStorage.setItem(key, JSON.stringify(val))
@@ -27,25 +34,29 @@ function makeId(length = 5) {
 }
 
 // --- Cloudinary Upload ---
+function getShareConfig() {
+    return SHARE_CONFIG
+}
+
 async function uploadImg(imgData, onSuccess) {
-    const CLOUD_NAME = 'webify'
-    const UPLOAD_URL = `https://api.cloudinary.com/v1_1/${CLOUD_NAME}/image/upload`
-    const UPLOAD_PRESET = 'webify'
+    if (!SHARE_CONFIG.enabled) throw new Error(SHARE_CONFIG.disabledReason)
+
+    const uploadUrl = `https://api.cloudinary.com/v1_1/${SHARE_CONFIG.cloudName}/image/upload`
 
     const formData = new FormData()
     formData.append('file', imgData)
-    formData.append('upload_preset', UPLOAD_PRESET)
+    formData.append('upload_preset', SHARE_CONFIG.uploadPreset)
     try {
-        const res = await fetch(UPLOAD_URL, {
+        const res = await fetch(uploadUrl, {
             method: 'POST',
             body: formData
         })
         const data = await res.json()
         console.log('Cloudinary response:', data)
         onSuccess(data.secure_url)
-
     } catch (err) {
         console.error(err)
+        throw err
     }
 }
 

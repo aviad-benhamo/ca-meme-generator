@@ -200,6 +200,12 @@ function onSaveMeme() {
 function onShareImg(ev) {
     ev.preventDefault()
 
+    const shareConfig = getShareConfig()
+    if (!shareConfig.enabled) {
+        showUserMsg(shareConfig.disabledReason)
+        return
+    }
+
     // 1. Remove frame for clean image
     const currIdx = getMeme().selectedLineIdx
     setSelectedLine(-1)
@@ -226,6 +232,7 @@ function onShareImg(ev) {
 
     // 6. Start upload
     uploadImg(canvasData, onSuccess)
+        .catch(() => showUserMsg('Share failed. Please review the Cloudinary configuration.'))
 }
 
 function onSetColor(color) {

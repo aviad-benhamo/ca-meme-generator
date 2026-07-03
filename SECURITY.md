@@ -19,4 +19,5 @@ For non-sensitive bugs or feature requests, use the public GitHub issue tracker.
 ## Security Notes
 
 - Do not commit secrets, API keys, or private credentials to this repository.
+- Keep direct client-side uploads disabled in public demos unless the Cloudinary preset restrictions have been explicitly reviewed and verified.
 - Review any third-party sharing or upload configuration, including Cloudinary presets, before using the project in production.
