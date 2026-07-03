@@ -18,6 +18,7 @@ and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 - README now includes a visible GitHub Pages live demo link.
 - README now follows a fuller GRS-style repository structure, including project status, stack, validation guidance, AI notice, and roadmap sections.
 - README now documents the repository static validation command and CI quality gate.
+- README now documents the initial `v0.1.0` version decision, tag format, and minimal release checklist.
 
 ## [0.1.0] - 2025-11-15
 

@@ -135,5 +135,23 @@ Near-term repository priorities:
 ## Changelog
 Project history and pending changes are tracked in [CHANGELOG.md](CHANGELOG.md).
 
+## Release Policy
+This project uses a lightweight, GRS-aligned release process for a static portfolio app.
+
+Initial version decision:
+- The initial release line is `v0.1.0`, not `v1.0.0`.
+- This repository is public and usable, but it is still maintained as an early-stage Coding Academy and portfolio project rather than a declared stable product.
+- Future release tags must follow the format `vMAJOR.MINOR.PATCH`.
+
+Release checklist:
+1. Confirm the relevant issue scope is complete and documented.
+2. Keep pending work in the `[Unreleased]` section of `CHANGELOG.md`.
+3. Run `npm run validate`.
+4. Run `git diff --check`.
+5. Manually verify the main browser flows and the GitHub Pages demo when relevant.
+6. Choose the next version using Semantic Versioning.
+7. Move the released entries from `[Unreleased]` into a dated version section only during release preparation.
+8. Create the Git tag and GitHub Release only after release blockers are resolved and approval is given.
+
 ## License
 This project is licensed under the [MIT License](LICENSE).
