@@ -2,6 +2,9 @@
 
 Memester is a lightweight, client-side meme generator built with vanilla HTML, CSS, and JavaScript. It lets users browse a gallery of images, upload their own images, add and edit text or stickers, and save or download the resulting memes. The project stores saved memes locally using `localStorage` and optionally uploads images to Cloudinary for sharing.
 
+## Live Demo
+Try the public GitHub Pages demo at [aviad-benhamo.github.io/ca-meme-generator](https://aviad-benhamo.github.io/ca-meme-generator/).
+
 ## Features
 - Responsive image gallery
 - Upload your own images and edit them
