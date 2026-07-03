@@ -1,76 +1,133 @@
 # Ultimate Meme Generator (Memester)
 
-Memester is a lightweight, client-side meme generator built with vanilla HTML, CSS, and JavaScript. It lets users browse a gallery of images, upload their own images, add and edit text or stickers, and save or download the resulting memes. The project stores saved memes locally using `localStorage` and optionally uploads images to Cloudinary for sharing.
+Client-side meme generator built with vanilla HTML, CSS, JavaScript, and Canvas.
+
+[![Live Demo](https://img.shields.io/badge/demo-GitHub%20Pages-2ea44f)](https://aviad-benhamo.github.io/ca-meme-generator/)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![Project Type](https://img.shields.io/badge/app-static%20client-lightgrey)](#project-status)
+
+## Project Status
+This repository is a dependency-free static web app originally built as a Coding Academy project and maintained as a public portfolio repository.
+
+Current maturity:
+- Stable for local use and public demo browsing
+- No backend, database, or build pipeline
+- Lightweight manual validation workflow instead of automated test coverage
 
 ## Live Demo
-Try the public GitHub Pages demo at [aviad-benhamo.github.io/ca-meme-generator](https://aviad-benhamo.github.io/ca-meme-generator/).
+Public GitHub Pages demo:
+
+- https://aviad-benhamo.github.io/ca-meme-generator/
+
+## Screenshots
+Screenshot documentation has not been added yet. For now, use the live demo to review the gallery, editor, and saved-memes flows.
 
 ## Features
-- Responsive image gallery
-- Upload your own images and edit them
-- Add multiple text lines with full editing support (font, color, size, alignment)
+- Browse a built-in gallery of meme images
+- Upload your own image and edit it on the canvas
+- Add multiple text lines with font, size, color, and alignment controls
 - Add emoji stickers
-- Drag or click on the canvas to select lines and edit them
-- Save memes to browser `localStorage`
-- Download memes locally, with public-demo sharing intentionally disabled until a restricted Cloudinary preset is verified
+- Select text or stickers directly from the canvas
+- Save memes locally with `localStorage`
+- Download finished memes as JPG files
+- Keep public-demo sharing disabled until a restricted Cloudinary preset is explicitly reviewed
+
+## Tech Stack
+- HTML5
+- CSS3
+- Vanilla JavaScript
+- Canvas API
+- Browser `localStorage`
+- Optional Cloudinary unsigned-upload integration for non-public or tightly restricted deployments
 
 ## Quick Start
-Requirements: a modern browser such as Chrome, Firefox, Edge, or Safari with JavaScript enabled. No build step is required.
+Requirements:
+- A modern browser such as Chrome, Firefox, Edge, or Safari
+- JavaScript enabled
+
+Run locally with no build step:
 
 1. Open the project directory.
-2. Open `index.html` in your browser, or serve the folder using a small development server.
+2. Open `index.html` directly in a browser, or serve the folder with a simple static server.
 
-PowerShell example:
+PowerShell examples:
 
 ```powershell
-# Using http-server from npm
-npx http-server -c-1
-
-# Or with Python 3
+# Using Python 3
 python -m http.server 8080
+
+# Or using http-server from npm
+npx http-server -c-1
 ```
 
-Visit `http://localhost:8080` after starting the server.
+Then open `http://localhost:8080`.
 
-## How to Use
-1. Click `Gallery` to browse stock images or click `I'm Feeling Lucky` to pick a random image.
-2. Use `Upload Image` to bring your own photo.
-3. When an image is selected, the editor appears. Type text, change color, fonts, size, and alignment.
-4. Add emoji stickers and move lines up or down. You can click a text line or sticker on the canvas to select it.
-5. Save your meme to the local gallery or download it as a JPG.
-6. Use `Download` to export your meme locally. The public demo keeps `Share` disabled until a restricted Cloudinary configuration is verified.
+## Usage
+1. Open the gallery and choose a built-in image, or upload your own image.
+2. Add or edit text lines from the editor controls.
+3. Change font, color, size, alignment, and vertical position.
+4. Add emoji stickers and select items directly from the canvas.
+5. Save the meme locally or download it as a JPG file.
+6. In the public demo, use download instead of share because public client-side sharing is intentionally disabled.
+
+## Configuration And Security Notes
+This repository does not use `.env` files or a runtime configuration layer. All shipped behavior is client-side and visible in the source.
+
+Cloudinary sharing notes:
+- The public demo keeps direct client-side sharing disabled by default.
+- If sharing is re-enabled in another environment, use only a tightly restricted unsigned Cloudinary preset.
+- Restrict upload scope with isolated folders or naming rules, size and format limits, overwrite protection, and abuse-resistant preset settings.
+- Never commit Cloudinary secrets, API keys, or private credentials.
+
+Security references:
+- See [SECURITY.md](SECURITY.md) for vulnerability reporting.
+- See [LICENSE](LICENSE) for licensing terms.
 
 ## Project Structure
-- `index.html` - Main HTML file and app entry point
-- `css/` - Main styles, split into setup, basics, and components
-- `js/` - Application logic, controllers, services, and utilities
-- `img/` - Bundled gallery images and favicon
-- `fonts/` - Local font assets used by the editor
+- `index.html` - Application entry point and main layout
+- `css/` - Styles split into setup, basics, and components
+- `js/` - Controllers, state services, and shared utilities
+- `img/` - Gallery images and favicon assets
+- `fonts/` - Local editor font files
 
-## Important Notes
-- The client-side sharing flow in `js/utils.js` is intentionally disabled in the public demo. The repository still documents the Cloudinary integration points so the feature can be re-enabled later in a safer environment.
-- If you re-enable client-side sharing, use only a tightly restricted unsigned Cloudinary preset. At minimum, enforce an isolated folder or naming rule, strict format and size limits, overwrite protection, and abuse-resistant preset settings before exposing it in a public client.
-- No Cloudinary secrets belong in this repository. Only non-secret public identifiers such as a cloud name or unsigned preset name may appear in client-side code.
-- Saved memes use `localStorage`, so they are stored per browser and will be lost if local browser storage is cleared.
+## Design Principles
+- Keep the project dependency-free and easy to run locally
+- Preserve a browser-only architecture with no backend coupling
+- Favor simple DOM and Canvas flows over framework abstractions
+- Keep public-demo behavior explicit, especially around uploads and sharing
 
-## License
-This project is licensed under the [MIT License](LICENSE).
+## Development And Validation
+Expected development workflow:
 
-## Security
-If you discover a security issue, please follow the private reporting process described in [SECURITY.md](SECURITY.md).
+1. Make focused changes on a dedicated branch.
+2. Verify the relevant user flow in a browser.
+3. Run lightweight repository checks before review.
+
+Useful validation steps for this repository:
+- `git diff --check`
+- Launch a local static server and test the main flows manually
+- Verify the GitHub Pages demo when documentation or metadata changes
+
+## Testing And Quality Checks
+This project does not currently include automated unit or integration tests.
+
+Current quality expectations:
+- Manual browser validation for gallery, editor, save, and download flows
+- Documentation updates should keep links and setup instructions accurate
+- Security-sensitive behavior such as public sharing must stay documented and intentionally scoped
+
+## AI-Assisted Development
+This repository may include AI-assisted documentation, maintenance, and implementation work. All generated changes should still be reviewed for correctness, clarity, and security before release.
+
+## Roadmap
+Near-term repository priorities:
+- Improve documentation completeness and portfolio presentation
+- Keep public sharing behavior safe and explicit
+- Add clearer release-history and maintenance hygiene
+- Consider future screenshot and demo-polish documentation updates
 
 ## Changelog
 Project history and pending changes are tracked in [CHANGELOG.md](CHANGELOG.md).
 
-## Contribution
-Contributions are welcome. Suggested steps:
-
-1. Fork and clone this repository.
-2. Create a feature branch for your work.
-3. Run and test your changes locally.
-4. Open a pull request with a clear description of the change.
-
-## Contact
-Created by Aviad Ben Hamo - Coding Academy
-
-If you want to add features or have questions about the implementation, open an issue or a pull request.
+## License
+This project is licensed under the [MIT License](LICENSE).
