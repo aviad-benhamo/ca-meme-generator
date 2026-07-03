@@ -131,7 +131,7 @@ function extractJsRefs(filePath, source) {
 
   const refs = []
   const stringPattern = /(['"`])((?:\\\1|.)*?)\1/g
-  const assetPathPattern = /^(?:\.{1,2}\/)?(?:img|fonts|css|js)\/.+|^(?:img|fonts|css|js)\/.+/i
+  const assetPathPattern = /^(?:\.{1,2}\/)?(?:assets|fonts|css|js)\/.+|^(?:assets|fonts|css|js)\/.+/i
   const fileNamePattern = /^[\w.-]+\.(?:png|jpe?g|gif|svg|webp|ico|css|js|ttf|woff2?)$/i
 
   for (const match of source.matchAll(stringPattern)) {
@@ -159,7 +159,7 @@ function resolveReference(fromFilePath, reference) {
     return path.join(rootDir, reference.slice(1))
   }
 
-  if (/^(?:img|fonts|css|js)\//i.test(reference)) {
+  if (/^(?:assets|fonts|css|js)\//i.test(reference)) {
     return path.join(rootDir, reference)
   }
 

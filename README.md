@@ -84,7 +84,7 @@ Repository tooling notes:
 - A lockfile is intentionally omitted unless future tooling introduces a real dependency tree that needs to be pinned.
 
 Static asset and configuration loading:
-- Gallery images and the favicon are loaded from local paths under `img/`.
+- Gallery images are loaded from `assets/gallery/`, and the favicon is loaded from `assets/icons/favicon.png`.
 - Editor fonts are loaded from local files in `fonts/` through `@font-face` declarations in `css/setup/typography.css`.
 - Client-side behavior is loaded from scripts under `js/`.
 - Normal app usage does not rely on `.env` files, hidden runtime secrets, or a separate configuration service.
@@ -115,7 +115,8 @@ Security references:
 - `index.html` - Application entry point and main layout
 - `css/` - Styles split into setup, basics, and components
 - `js/` - Controllers, state services, and shared utilities
-- `img/` - Gallery images and the optimized favicon asset
+- `assets/gallery/` - Runtime meme gallery images used by the app
+- `assets/icons/` - Favicon and other app icon assets
 - `assets/screenshots/` - Public documentation screenshots for the README and repository presentation
 - `fonts/` - Local editor font files
 

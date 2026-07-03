@@ -131,9 +131,9 @@ This repository follows the GitHub Repository Standard (GRS). Use the GRS as the
 
 - Project name: Memester (`ca-meme-generator`).
 - Repository type/state: Dependency-free static HTML/CSS/JavaScript portfolio app with no backend, database, bundler, or package-install step for runtime use.
-- Main architecture docs: `README.md` is the primary project overview; `index.html` is the application entry point; runtime logic lives under `js/`, styles under `css/`, local fonts under `fonts/`, gallery images under `img/`, and documentation screenshots under `assets/screenshots/`.
+- Main architecture docs: `README.md` is the primary project overview; `index.html` is the application entry point; runtime logic lives under `js/`, styles under `css/`, local fonts under `fonts/`, runtime gallery images under `assets/gallery/`, icons under `assets/icons/`, and documentation screenshots under `assets/screenshots/`.
 - Main commands: `npm run validate` for repository validation; open `index.html` directly or serve the repository with a simple static server for local browser testing.
 - Test strategy: Before proposing a commit or PR, run `npm run validate` and `git diff --check`. When UI behavior, layout, canvas editing, save/download flows, or asset references change, also perform a local browser smoke check of the affected flow.
 - Build or release process: No build pipeline exists. GitHub Pages serves the repository as a static site, and release/tag actions require explicit Aviad approval.
-- Deployment notes: Keep browser-loaded asset paths stable and relative. Treat changes to `img/`, `fonts/`, `css/`, `js/`, `assets/screenshots/`, and `index.html` as potentially user-visible in the local app and GitHub Pages demo.
+- Deployment notes: Keep browser-loaded asset paths stable and relative. Treat changes to `assets/gallery/`, `assets/icons/`, `assets/screenshots/`, `fonts/`, `css/`, `js/`, and `index.html` as potentially user-visible in the local app and GitHub Pages demo.
 - Project-specific restrictions: Keep the app dependency-free unless explicitly asked otherwise, do not add secrets or `.env` usage, do not broaden scope into refactors unrelated to the issue, and do not enable release/tag/publish actions without explicit approval.
