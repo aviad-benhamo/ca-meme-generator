@@ -20,7 +20,13 @@ Public GitHub Pages demo:
 - https://aviad-benhamo.github.io/ca-meme-generator/
 
 ## Screenshots
-Screenshot documentation has not been added yet. For now, use the live demo to review the gallery, editor, and saved-memes flows.
+Current application screenshots:
+
+### Gallery View
+![Memester gallery view](assets/screenshots/memester-gallery-view.png)
+
+### Editor View
+![Memester editor view](assets/screenshots/memester-editor-view.png)
 
 ## Features
 - Browse a built-in gallery of meme images
@@ -87,7 +93,8 @@ Security references:
 - `index.html` - Application entry point and main layout
 - `css/` - Styles split into setup, basics, and components
 - `js/` - Controllers, state services, and shared utilities
-- `img/` - Gallery images and favicon assets
+- `img/` - Gallery images and the optimized favicon asset
+- `assets/screenshots/` - Public documentation screenshots for the README and repository presentation
 - `fonts/` - Local editor font files
 
 ## Design Principles
