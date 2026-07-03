@@ -9,6 +9,7 @@ and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 
 ### Added
 - Repository baseline files for license, security reporting, editor settings, Git attributes, and changelog tracking.
+- Lightweight static validation tooling with a local `npm run validate` command and a GitHub Actions workflow for push and pull request checks.
 
 ### Changed
 - README links for the project license, changelog, and security policy.
@@ -16,6 +17,7 @@ and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 - GitHub repository metadata now uses the public demo homepage, a fuller About description, and portfolio-relevant topics.
 - README now includes a visible GitHub Pages live demo link.
 - README now follows a fuller GRS-style repository structure, including project status, stack, validation guidance, AI notice, and roadmap sections.
+- README now documents the repository static validation command and CI quality gate.
 
 ## [0.1.0] - 2025-11-15
 

@@ -12,7 +12,7 @@ This repository is a dependency-free static web app originally built as a Coding
 Current maturity:
 - Stable for local use and public demo browsing
 - No backend, database, or build pipeline
-- Lightweight manual validation workflow instead of automated test coverage
+- Lightweight automated static validation plus manual browser validation
 
 ## Live Demo
 Public GitHub Pages demo:
@@ -104,6 +104,7 @@ Expected development workflow:
 3. Run lightweight repository checks before review.
 
 Useful validation steps for this repository:
+- `npm run validate`
 - `git diff --check`
 - Launch a local static server and test the main flows manually
 - Verify the GitHub Pages demo when documentation or metadata changes
@@ -111,7 +112,12 @@ Useful validation steps for this repository:
 ## Testing And Quality Checks
 This project does not currently include automated unit or integration tests.
 
+Available lightweight static checks:
+- `npm run validate` runs JavaScript syntax validation, confirms `index.html` exists, and verifies local asset references used by HTML, CSS, and JavaScript files.
+- `.github/workflows/static-quality.yml` runs the same validation on pull requests and on pushes to `main`.
+
 Current quality expectations:
+- Static validation should pass before review
 - Manual browser validation for gallery, editor, save, and download flows
 - Documentation updates should keep links and setup instructions accurate
 - Security-sensitive behavior such as public sharing must stay documented and intentionally scoped

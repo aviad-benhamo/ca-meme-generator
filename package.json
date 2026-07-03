@@ -1,0 +1,9 @@
+{
+  "name": "ca-meme-generator",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Static validation checks for the Memester app.",
+  "scripts": {
+    "validate": "node scripts/validate-static-app.mjs"
+  }
+}
