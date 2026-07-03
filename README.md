@@ -164,6 +164,7 @@ Near-term repository priorities:
 
 ## Changelog
 Project history and pending changes are tracked in [CHANGELOG.md](CHANGELOG.md).
+The prepared first-release notes are available in [RELEASE_NOTES_v0.1.0.md](RELEASE_NOTES_v0.1.0.md).
 
 ## Release Policy
 This project uses a lightweight, GRS-aligned release process for a static portfolio app.
